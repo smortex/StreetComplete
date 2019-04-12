@@ -12,6 +12,8 @@ class AddWheelChairAccessToilets(o: OverpassMapDataDao) : SimpleOverpassQuestTyp
     override val commitMessage = "Add wheelchair access to toilets"
     override val icon = R.drawable.ic_quest_toilets_wheelchair
 
+    override val relativeToWheelchair = true
+
     override fun getTitle(tags: Map<String, String>) =
         if (tags.containsKey("name"))
             R.string.quest_wheelchairAccess_toilets_name_title

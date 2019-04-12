@@ -10,4 +10,6 @@ class OsmNoteQuestType : QuestType<NoteAnswer> {
     override val title = R.string.quest_noteDiscussion_title
 
     override fun createForm() = NoteDiscussionForm()
+
+    val relativeToWheelchair: Boolean = false
 }

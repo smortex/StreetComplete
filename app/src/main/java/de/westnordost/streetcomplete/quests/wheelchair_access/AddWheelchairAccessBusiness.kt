@@ -44,6 +44,8 @@ class AddWheelchairAccessBusiness(o: OverpassMapDataDao) : SimpleOverpassQuestTy
     override val icon = R.drawable.ic_quest_wheelchair_shop
     override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
 
+    override val relativeToWheelchair = true
+
     override fun getTitle(tags: Map<String, String>) = R.string.quest_wheelchairAccess_name_title
 
     override fun createForm() = AddWheelchairAccessBusinessForm()

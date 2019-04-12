@@ -79,6 +79,9 @@ public class QuestSelectionFragment extends Fragment
 			case R.id.action_deselect_all:
 				onDeselectAll();
 				return true;
+			case R.id.action_preset_wheelchair:
+				onPresetWheelchair();
+				return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -98,6 +101,19 @@ public class QuestSelectionFragment extends Fragment
 			if(!(questType instanceof OsmNoteQuestType))
 			{
 				visibleQuestTypeDao.setVisible(questType, false);
+			}
+		}
+		questSelectionAdapter.setList(createQuestTypeVisibilityList());
+	}
+
+	private void onPresetWheelchair()
+	{
+		List<QuestType> questTypes = new ArrayList<>(questTypeRegistry.getAll());
+		for (QuestType questType : questTypes)
+		{
+			if (!(questType instanceof OsmNoteQuestType))
+			{
+				visibleQuestTypeDao.setVisible(questType, ((OsmNoteQuestType) questType).getRelativeToWheelchair());
 			}
 		}
 		questSelectionAdapter.setList(createQuestTypeVisibilityList());
